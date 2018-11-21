@@ -5,6 +5,8 @@ import eu.domroese.toolbox.model.Bookmark;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,13 @@ public class BookmarkController {
     public String addBookmark(Model model){
         //@TODO: Add Bookmark to DB and redirect to list
         model.addAttribute("pageTitle", "Add Bookmark");
+        model.addAttribute("bookmark", new Bookmark());
         return "bookmarks/add";
+    }
+
+    @PostMapping("/bookmark/add")
+    public String addBookmarkSubmit(@ModelAttribute Bookmark bookmark){
+
+        return "bookmarks/added";
     }
 }

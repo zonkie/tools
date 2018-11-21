@@ -5,6 +5,12 @@
     <title th:text="${pageTitle}">Add bookmarks</title>
 </head>
 <body>
+<h1>Add a Bookmark</h1>
+<form action="#" th:action="@{/bookmark/add}" th:object="${bookmark}" method="post">
+    <p>Url: <input type="text" th:field="*{url}" /></p>
+    <p>Titel: <input type="text" th:field="*{title}" /></p>
+    <p><input type="submit" value="Speichern" /> </p>
+</form>
 
 </body>
 </html>
