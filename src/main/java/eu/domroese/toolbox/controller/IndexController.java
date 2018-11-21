@@ -1,4 +1,4 @@
-package eu.domroese.toolbox.Controller;
+package eu.domroese.toolbox.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +11,8 @@ public class IndexController {
     @GetMapping("/index2")
     public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
+
+        model.addAttribute("pageTitle", "ToolBox");
         return "index";
     }
 
