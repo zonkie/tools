@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>Project</th>
+            <th>Story</th>
+            <th>Task</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr class="time" th:each="time : ${times}">
+        <td class="project ${time.project}" th:text="${time.project}"></td>
+        <td class="story ${time.project}" th:text="${time.story}"></td>
+        <td class="task ${time.project}" th:text="${time.task}"></td>
+        <td class="start ${time.project}" th:text="${time.start}"></td>
+        <td class="end ${time.project}" th:text="${time.end}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
