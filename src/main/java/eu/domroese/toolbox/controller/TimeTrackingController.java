@@ -21,7 +21,9 @@ public class TimeTrackingController {
 
     @GetMapping("/timetracking")
     public String timeTrackingOverview(Model model){
+        Iterable<OttProject> projects = ottProjectRepository.findAll();
 
+        model.addAttribute("projects", projects);
         model.addAttribute("pageTitle", "TimeTracking Overview");
         return "timetracking/index";
     }
@@ -33,6 +35,7 @@ public class TimeTrackingController {
         Iterable<OttProject> projects = ottProjectRepository.findAll();
 
         model.addAttribute("times", times);
+        model.addAttribute("projects", projects);
         model.addAttribute("pageTitle", "TimeTracking by Day");
 
         return "timetracking/day";
