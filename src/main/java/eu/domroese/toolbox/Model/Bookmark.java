@@ -1,4 +1,4 @@
-package eu.domroese.toolbox.model;
+package eu.domroese.toolbox.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

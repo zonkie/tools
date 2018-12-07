@@ -5,6 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<th:block th:include="fragments/mainMenu"></th:block>
+<ul xmlns:th="http://www.w3.org/1999/xhtml">
+    <li>
+        <a th:href="/bookmarks">Bookmarks</a>
+    </li>
+    <li>
+        <a th:href="/timetracking">TimeTracking</a>
+    </li>
+</ul>
 </body>
 </html>

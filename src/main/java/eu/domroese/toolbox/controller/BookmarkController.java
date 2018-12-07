@@ -1,7 +1,7 @@
 package eu.domroese.toolbox.controller;
 
 
-import eu.domroese.toolbox.model.Bookmark;
+import eu.domroese.toolbox.Model.Bookmark;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
