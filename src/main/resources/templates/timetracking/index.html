@@ -6,6 +6,24 @@
 </head>
 <body>
 
-Timetracking Overview
-</body>
+<table>
+    <thead>
+    <tr>
+        <th>Project</th>
+        <th>Story</th>
+        <th>Task</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="project" th:each="project : ${projects}">
+        <td class="project ${project.project}">
+            <input type="button" style="background-color: #F90" th:text="${project.project}" />
+        </td>
+        <td class="story"></td>
+        <td class="task"></td>
+
+    </tr>
+    </tbody>
+</table></body>
 </html>
