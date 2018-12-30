@@ -11,18 +11,28 @@
 <table>
     <thead>
     <tr>
-        <th>Project</th>
-        <th>Story</th>
-        <th>Task</th>
+        <th>
+            <div>Project</div>
+            <div>Story</div>
+            <div>Task</div>
+        </th>
     </tr>
     </thead>
     <tbody>
     <tr class="project" th:each="project : ${projects}">
         <td class="project ${project.project}">
-            <input type="button" style="background-color: #F90" th:text="${project.project}"/>
+            <form action="/timetracking/add" method="post">
+                <div>
+                    <input type="submit" th:style="'background-color:' + ${project.color}" style="" th:value="${project.project}"/>
+                </div>
+                <div>
+                    <input type="text" name="story"/>
+                </div>
+                <div>
+                    <input type="text" name="task"/>
+                </div>
+            </form>
         </td>
-        <td class="story"></td>
-        <td class="task"></td>
 
     </tr>
     </tbody>

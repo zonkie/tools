@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${pageTitle}">Bookmarks</title>
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-    <div>Bookmarks</div>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="bookmarks/submenu :: submenu"></div>
+<div>Bookmarks</div>
 
-    <div th:each="bookmark : ${bookmarks}">
-        <div class="bookmark">
-            <a th:href="${bookmark.url}" th:title="${bookmark.title}" target="_blank" class="bookmark-link">
+<div th:each="bookmark : ${bookmarks}">
+    <div class="bookmark">
+        <a th:href="${bookmark.url}" th:title="${bookmark.title}" target="_blank" class="bookmark-link">
                 <span th:text="${bookmark.title}" class="bookmark-title">
                     title
                 </span>
-            </a>
-        </div>
+        </a>
     </div>
+</div>
 </body>
 </html>

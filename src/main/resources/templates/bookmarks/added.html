@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${pageTitle}">Add bookmarks</title>
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="bookmarks/submenu :: submenu"></div>
 
 <p th:text="${bookmark.url} gespeichert" >asdsad</p>
 </body>
