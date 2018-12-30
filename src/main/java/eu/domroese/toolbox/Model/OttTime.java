@@ -15,6 +15,17 @@ public class OttTime {
     @Column(nullable = true)
     private Date end;
 
+    public OttTime() {
+    }
+
+    public OttTime(String project, String story, String task, Date start, Date end) {
+        this.project = project;
+        this.story = story;
+        this.task = task;
+        this.start = start;
+        this.end = end;
+    }
+
     public Integer getId() {return id;}
 
     public void setId(Integer id) {

@@ -2,28 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${pageTitle}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="timetracking/submenu :: submenu"></div>
 <table>
     <thead>
     <tr>
         <th>Project</th>
         <th>Story</th>
         <th>Task</th>
-
     </tr>
     </thead>
     <tbody>
     <tr class="project" th:each="project : ${projects}">
         <td class="project ${project.project}">
-            <input type="button" style="background-color: #F90" th:text="${project.project}" />
+            <input type="button" style="background-color: #F90" th:text="${project.project}"/>
         </td>
         <td class="story"></td>
         <td class="task"></td>
 
     </tr>
     </tbody>
-</table></body>
+</table>
+</body>
 </html>

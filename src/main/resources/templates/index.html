@@ -3,9 +3,12 @@
 <head>
     <title th:text="${pageTitle}">Toolbox</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-<th:block th:include="fragments/mainMenu"></th:block>
+
+<div th:replace="fragments/header:: header"></div>
+
 <ul xmlns:th="http://www.w3.org/1999/xhtml">
     <li>
         <a th:href="/bookmarks">Bookmarks</a>
