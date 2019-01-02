@@ -15,6 +15,9 @@ public class OttProject {
 
     private String color;
 
+	public OttProject() {
+	}
+
 	public OttProject(String project, String color) {
 		this.project = project;
 		this.color = color;

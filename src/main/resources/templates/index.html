@@ -1,18 +1,12 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title th:text="${pageTitle}">Toolbox</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <title>Toolbox</title>
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-<th:block th:include="fragments/mainMenu"></th:block>
-<ul xmlns:th="http://www.w3.org/1999/xhtml">
-    <li>
-        <a th:href="/bookmarks">Bookmarks</a>
-    </li>
-    <li>
-        <a th:href="/timetracking">TimeTracking</a>
-    </li>
-</ul>
+<div th:replace="fragments/header :: header"></div>
+
 </body>
 </html>

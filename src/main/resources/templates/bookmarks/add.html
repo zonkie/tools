@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${pageTitle}">Add bookmarks</title>
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="bookmarks/submenu :: submenu"></div>
+
 <h1>Add a Bookmark</h1>
 <form action="#" th:action="@{/bookmark/add}" th:object="${bookmark}" method="post">
     <p>Url: <input type="text" th:field="*{url}" /></p>

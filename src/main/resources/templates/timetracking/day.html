@@ -3,8 +3,11 @@
 <head>
     <title th:text="${pageTitle}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="timetracking/submenu :: submenu"></div>
 
 <table>
     <thead>
