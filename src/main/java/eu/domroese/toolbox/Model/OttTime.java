@@ -7,7 +7,7 @@ import java.util.Date;
 public class OttTime {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String project;
     private String story;
     private String task;
@@ -19,6 +19,7 @@ public class OttTime {
     }
 
     public OttTime(String project, String story, String task, Date start, Date end) {
+        this.id = null;
         this.project = project;
         this.story = story;
         this.task = task;
@@ -26,9 +27,9 @@ public class OttTime {
         this.end = end;
     }
 
-    public Integer getId() {return id;}
+    public Long getId() {return id;}
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

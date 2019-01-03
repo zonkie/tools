@@ -10,30 +10,31 @@
 <div th:replace="timetracking/submenu :: submenu"></div>
 <table>
     <thead>
-    <tr>
+    <tr class="project form-row">
         <th>
-            <div>Project</div>
-            <div>Story</div>
-            <div>Task</div>
+            <div class="form-field">Project</div>
+            <div class="form-field">Story</div>
+            <div class="form-field">Task</div>
         </th>
     </tr>
     </thead>
     <tbody>
     <tr class="project" th:each="project : ${projects}">
-        <td class="project ${project.project}">
+        <td class="project ${project.project} form-row">
             <form action="/timetracking/add" method="post">
-                <div>
-                    <input type="submit" th:style="'background-color:' + ${project.color}" style="" th:value="${project.project}"/>
+                <div class="form-field">
+                    <input type="submit" th:style="'background-color:' + ${project.color}" style=""
+                           th:value="${project.project}"/>
+                    <input type="hidden" name="project" th:value="${project.id}">
                 </div>
-                <div>
+                <div class="form-field">
                     <input type="text" name="story"/>
                 </div>
-                <div>
+                <div class="form-field">
                     <input type="text" name="task"/>
                 </div>
             </form>
         </td>
-
     </tr>
     </tbody>
 </table>

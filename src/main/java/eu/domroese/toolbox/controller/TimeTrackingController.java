@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 
 @Controller
 public class TimeTrackingController {
@@ -21,7 +24,7 @@ public class TimeTrackingController {
     private OttTimeRepository ottTimeRepository;
 
     @GetMapping("/timetracking")
-    public String timeTrackingOverview(Model model){
+    public String timeTrackingOverview(Model model) {
         Iterable<OttProject> projects = ottProjectRepository.findAll();
 
         //@TODO: get current active entry (endDate = null)
@@ -33,10 +36,33 @@ public class TimeTrackingController {
     }
 
     @PostMapping("/timetracking/add")
-    public String timeTrackingAdd(Model model){
-        //@TODO: set all wit hend=null to current_date
+    public String timeTrackingAdd(
+            @RequestParam("project") String project,
+            @RequestParam("story") String story,
+            @RequestParam("task") String task
+    ) {
+        //@TODO: set all with end=null to current_date
         // add new Row with start = now() and end = null
 
+        System.out.println("project");
+        System.out.println(project);
+        System.out.println("story");
+        System.out.println(story);
+        System.out.println("task");
+        System.out.println(task);
+        try {
+            ottTimeRepository.save(
+                    new OttTime(
+                            project,
+                            story,
+                            task,
+                            new Date(),
+                            null
+                    )
+            );
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return "redirect:/timetracking";
     }
 
