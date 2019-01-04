@@ -11,9 +11,9 @@
 
 
 <div class="currentActive" >
-    <span class="activeProject"  th:if="${currentActive != null}" th:text="'Current active: ' + ${currentActive.project}"></span> <!-- @TODO: Get Name of Project form Project-List -->
-    <span class="activeStory"  th:if="${currentActive != null}" th:text="' (' + ${currentActive.story} + ')'"></span> <!-- @TODO: Check for empty value -->
-    <span class="activeTask"  th:if="${currentActive != null}" th:text="' (' + ${currentActive.task} + ')'"></span> <!-- @TODO: Check for empty value -->
+    <span class="activeProject"  th:if="${currentActive != null && currentActive .project != ''}" th:text="'Current active: ' + ${currentActive.project}"></span> <!-- @TODO: Get Name of Project form Project-List -->
+    <span class="activeStory"  th:if="${currentActive != null && currentActive.story != ''}" th:text="' (' + ${currentActive.story} + ')'"></span> <!-- @TODO: Check for empty value -->
+    <span class="activeTask"  th:if="${currentActive != null && currentActive.task != ''}" th:text="' (' + ${currentActive.task} + ')'"></span> <!-- @TODO: Check for empty value -->
 </div>
 <table>
     <thead>
@@ -26,6 +26,32 @@
     </tr>
     </thead>
     <tbody>
+    <tr class="project">
+        <td class="project feierabend form-row">
+            <form action="/timetracking/add" method="post">
+                <div class="form-field">
+                    <input type="submit" th:style="'background-color: white'" style=""
+                           th:value="Feierabend"/>
+                    <input type="hidden" name="project" th:value="feierabend">
+                    <input type="hidden" name="story"/>
+                    <input type="hidden" name="task"/>
+                </div>
+            </form>
+        </td>
+    </tr>
+    <tr class="project">
+        <td class="project pause form-row">
+            <form action="/timetracking/add" method="post">
+                <div class="form-field">
+                    <input type="submit" th:style="'background-color: white'" style=""
+                           th:value="Pause"/>
+                    <input type="hidden" name="project" th:value="pause">
+                    <input type="hidden" name="story"/>
+                    <input type="hidden" name="task"/>
+                </div>
+            </form>
+        </td>
+    </tr>
     <tr class="project" th:each="project : ${projects}">
         <td class="project ${project.project} form-row">
             <form action="/timetracking/add" method="post">
