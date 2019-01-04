@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Controller
 public class TimeTrackingController {
@@ -27,8 +29,15 @@ public class TimeTrackingController {
     public String timeTrackingOverview(Model model) {
         Iterable<OttProject> projects = ottProjectRepository.findAll();
 
-        //@TODO: get current active entry (endDate = null)
-        // Pass current active to front
+        Optional<OttTime> currentActive = ottTimeRepository.findActiveEntry();
+        try {
+            OttTime current = currentActive.get();
+            model.addAttribute("currentActive", current);
+        } catch(NoSuchElementException e){
+            // No active element, so do nothing except setting the template variable to null...
+            model.addAttribute("currentActive", null);
+
+        }
 
         model.addAttribute("projects", projects);
         model.addAttribute("pageTitle", "TimeTracking Overview");
@@ -41,15 +50,16 @@ public class TimeTrackingController {
             @RequestParam("story") String story,
             @RequestParam("task") String task
     ) {
-        //@TODO: set all with end=null to current_date
-        // add new Row with start = now() and end = null
 
-        System.out.println("project");
-        System.out.println(project);
-        System.out.println("story");
-        System.out.println(story);
-        System.out.println("task");
-        System.out.println(task);
+        Optional<OttTime> currentActive = ottTimeRepository.findActiveEntry();
+        try {
+            OttTime current = currentActive.get();
+            current.setEnd(new Date());
+            ottTimeRepository.save(current);
+        } catch(NoSuchElementException e){
+            // No active element, so do nothing...
+        }
+
         try {
             ottTimeRepository.save(
                     new OttTime(
@@ -60,9 +70,10 @@ public class TimeTrackingController {
                             null
                     )
             );
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return "redirect:/timetracking";
     }
 

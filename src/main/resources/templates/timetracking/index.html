@@ -8,6 +8,13 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 <div th:replace="timetracking/submenu :: submenu"></div>
+
+
+<div class="currentActive" >
+    <span class="activeProject"  th:if="${currentActive != null}" th:text="'Current active: ' + ${currentActive.project}"></span> <!-- @TODO: Get Name of Project form Project-List -->
+    <span class="activeStory"  th:if="${currentActive != null}" th:text="' (' + ${currentActive.story} + ')'"></span> <!-- @TODO: Check for empty value -->
+    <span class="activeTask"  th:if="${currentActive != null}" th:text="' (' + ${currentActive.task} + ')'"></span> <!-- @TODO: Check for empty value -->
+</div>
 <table>
     <thead>
     <tr class="project form-row">
