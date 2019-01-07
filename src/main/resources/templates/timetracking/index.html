@@ -11,9 +11,9 @@
 
 
 <div class="currentActive" >
-    <span class="activeProject"  th:if="${currentActive != null && currentActive .project != ''}" th:text="'Current active: ' + ${currentActive.project}"></span> <!-- @TODO: Get Name of Project form Project-List -->
-    <span class="activeStory"  th:if="${currentActive != null && currentActive.story != ''}" th:text="' (' + ${currentActive.story} + ')'"></span> <!-- @TODO: Check for empty value -->
-    <span class="activeTask"  th:if="${currentActive != null && currentActive.task != ''}" th:text="' (' + ${currentActive.task} + ')'"></span> <!-- @TODO: Check for empty value -->
+    <span class="activeProject" th:if="${currentActive != null && currentActive .project != ''}" th:text="'Current active: ' + ${currentActive.project}"></span> <!-- @TODO: Get Name of Project form Project-List -->
+    <span class="activeStory" th:if="${currentActive != null && currentActive.story != ''}" th:text="' (' + ${currentActive.story} + ')'"></span> <!-- @TODO: Check for empty value -->
+    <span class="activeTask" th:if="${currentActive != null && currentActive.task != ''}" th:text="' (' + ${currentActive.task} + ')'"></span> <!-- @TODO: Check for empty value -->
 </div>
 <table>
     <thead>

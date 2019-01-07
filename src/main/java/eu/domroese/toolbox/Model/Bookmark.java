@@ -1,23 +1,24 @@
 package eu.domroese.toolbox.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Bookmark {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @Column(name = "id")
+    @GeneratedValue
+    private Long id;
 
     private String url;
 
     private String title;
 
-    public Bookmark() {
-    }
+    private String group;
+
+
+    /* Constructors */
+    public Bookmark() {}
 
     public Bookmark(String url) {
         this.url = url;
@@ -27,12 +28,12 @@ public class Bookmark {
         this.url = url;
         this.title = title;
     }
-
-    public String getId() {
+    /* /Constructors */
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,4 +52,14 @@ public class Bookmark {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    /* /getters and setters */
 }

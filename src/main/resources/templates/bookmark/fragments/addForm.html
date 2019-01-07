@@ -1,0 +1,18 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="bookmarkAddForm">
+    <h1>Add a Bookmark</h1>
+    <form action="/bookmark/add" method="post" th:object="${newBookmark}">
+        <div class="form-field">
+            <label for="url"></label>Url: <input type="text" id="url" name="url" th:field="*{url}" />
+        </div>
+        <div class="form-field">
+            <label for="title"></label>Titel: <input type="text" id="title" name="title" th:field="*{title}" />
+        </div>
+        <div class="form-field">
+            <label for="group">Gruppe:</label><input type="text" id="group" name="group" th:field="*{group}" />
+        </div>
+        <div class="form-field">
+            <label>&nbsp;</label>
+            <input type="submit" value="Speichern"/>
+        </div>
+    </form>
+</div>

@@ -7,8 +7,10 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<div th:replace="bookmarks/submenu :: submenu"></div>
+<div th:replace="bookmark/submenu :: submenu"></div>
 <div>Bookmarks</div>
+
+<div class="added" th:if="${added != null && added == true}" th:text="Bookmark hinzugefügt"></div>
 
 <div th:each="bookmark : ${bookmarks}">
     <div class="bookmark">
@@ -19,5 +21,8 @@
         </a>
     </div>
 </div>
+
+<div th:replace="bookmark/fragments/addForm :: bookmarkAddForm"></div>
+
 </body>
 </html>

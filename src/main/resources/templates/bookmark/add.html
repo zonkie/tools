@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Add bookmarks</title>
+    <style th:replace="fragments/style :: style"></style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="bookmark/submenu :: submenu"></div>
+
+<div th:replace="bookmark/fragments/addForm :: bookmarkAddForm"></div>
+
+</body>
+</html>
