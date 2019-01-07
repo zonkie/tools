@@ -28,7 +28,6 @@ public class BookmarkController {
 
         //@Todo: get Bookmarks from DB
         ArrayList<Bookmark> Bookmarks = new ArrayList<>();
-        Bookmarks.add(new Bookmark("http://www.hawesko.de/", "Hawesko Live"));
         model.addAttribute("bookmarks", Bookmarks);
 
         model.addAttribute("pageTitle", "Bookmarks");

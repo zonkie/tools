@@ -28,6 +28,13 @@ public class Bookmark {
         this.url = url;
         this.title = title;
     }
+
+    public Bookmark(String url, String title, String group) {
+        this.url = url;
+        this.title = title;
+        this.group = group;
+    }
+
     /* /Constructors */
     public Long getId() {
         return id;
