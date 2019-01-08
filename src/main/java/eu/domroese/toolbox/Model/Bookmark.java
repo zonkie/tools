@@ -3,6 +3,7 @@ package eu.domroese.toolbox.Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "bookmark")
 public class Bookmark {
 
     @Id
@@ -14,7 +15,7 @@ public class Bookmark {
 
     private String title;
 
-    private String group;
+    private String category;
 
 
     /* Constructors */
@@ -29,10 +30,10 @@ public class Bookmark {
         this.title = title;
     }
 
-    public Bookmark(String url, String title, String group) {
+    public Bookmark(String url, String title, String category) {
         this.url = url;
         this.title = title;
-        this.group = group;
+        this.category = category;
     }
 
     /* /Constructors */
@@ -60,12 +61,12 @@ public class Bookmark {
         this.title = title;
     }
 
-    public String getGroup() {
-        return group;
+    public String getCategory() {
+        return category;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     /* /getters and setters */

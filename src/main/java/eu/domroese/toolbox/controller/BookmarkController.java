@@ -21,13 +21,13 @@ public class BookmarkController {
     private Model model;
 
     @GetMapping("/bookmark")
-    public String listBookmarks(Model model, @RequestParam(required = false) boolean added) {
+    public String listBookmarks(Model model, @RequestParam(required = true, defaultValue = "0") String added) {
 
         model.addAttribute("newBookmark", new Bookmark());
         model.addAttribute("added", added);
 
         //@Todo: get Bookmarks from DB
-        ArrayList<Bookmark> Bookmarks = new ArrayList<>();
+        ArrayList<Bookmark> Bookmarks = (ArrayList<Bookmark>) bookmarkRepository.findAll();
         model.addAttribute("bookmarks", Bookmarks);
 
         model.addAttribute("pageTitle", "Bookmarks");
@@ -45,6 +45,6 @@ public class BookmarkController {
     @RequestMapping(value = "/bookmark/add", method = RequestMethod.POST)
     public String addBookmarkSubmit(@ModelAttribute(value="newBookmark") Bookmark newBookmark, BindingResult bindingResult, Model model) {
         bookmarkRepository.save(newBookmark);
-        return "Redirect:/bookmark/list?add=true";
+        return "redirect:/bookmark?added=1";
     }
 }
