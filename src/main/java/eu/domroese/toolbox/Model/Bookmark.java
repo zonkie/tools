@@ -2,8 +2,8 @@ package eu.domroese.toolbox.Model;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "bookmark")
 public class Bookmark {
 
     @Id
@@ -19,7 +19,8 @@ public class Bookmark {
 
 
     /* Constructors */
-    public Bookmark() {}
+    public Bookmark() {
+    }
 
     public Bookmark(String url) {
         this.url = url;

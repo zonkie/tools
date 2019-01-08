@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Entity
 public class OttTime {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,7 +28,9 @@ public class OttTime {
         this.end = end;
     }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
