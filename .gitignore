@@ -1,6 +1,8 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 src/main/resources/development.properties
+src/main/resources/applivation-development.properties
+src/main/resources/applivation-production.properties
 
 ### STS ###
 .apt_generated
