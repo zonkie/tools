@@ -2,13 +2,16 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle}">Add bookmarks</title>
+    <title>Add Bookmarks</title>
     <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="bookmark/submenu :: submenu"></div>
-
+<div class="page">
+    <div class="pageHead">
+        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="bookmark/submenu :: submenu"></div>
+    </div>
+    <div class="pageBody">
 <p th:text="${bookmark.url} gespeichert" >asdsad</p>
 </body>
 </html>

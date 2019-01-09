@@ -2,32 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${pageTitle}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="timetracking/submenu :: submenu"></div>
+<div class="page">
+    <div class="pageHead">
 
-<table>
-    <thead>
-        <tr>
-            <th>Project</th>
-            <th>Story</th>
-            <th>Task</th>
-            <th>Start</th>
-            <th>End</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr class="time" th:each="time : ${times}">
-        <td class="project ${time.project}" th:text="${time.project}"></td>
-        <td class="story ${time.project}" th:text="${time.story}"></td>
-        <td class="task ${time.project}" th:text="${time.task}"></td>
-        <td class="start ${time.project}" th:text="${time.start}"></td>
-        <td class="end ${time.project}" th:text="${time.end}"></td>
-    </tr>
-    </tbody>
-</table>
+        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="timetracking/submenu :: submenu"></div>
+    </div>
+    <div class="pageBody">
+        <table>
+            <thead>
+            <tr>
+                <th>Project</th>
+                <th>Story</th>
+                <th>Task</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="time" th:each="time : ${times}">
+                <td class="project ${time.project}" th:text="${time.project}"></td>
+                <td class="story ${time.project}" th:text="${time.story}"></td>
+                <td class="task ${time.project}" th:text="${time.task}"></td>
+                <td class="start ${time.project}" th:text="${time.start}"></td>
+                <td class="end ${time.project}" th:text="${time.end}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

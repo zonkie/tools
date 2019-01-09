@@ -1,5 +1,9 @@
 <div class="header" th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div th:replace="fragments/mainMenu :: nav">
+
+    <div th:class="loginBox" th:replace="fragments/user :: user">
+    </div>
+
+    <div th:class="mainMenuBox" th:replace="fragments/mainMenu :: nav">
     </div>
 </div>
 

@@ -2,27 +2,32 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle}">Bookmarks</title>
+    <title>Bookmarks</title>
     <style th:replace="fragments/style :: style"></style>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="bookmark/submenu :: submenu"></div>
-<div>Bookmarks</div>
+<div class="page">
+    <div class="pageHead">
+        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="bookmark/submenu :: submenu"></div>
+    </div>
+    <div class="pageBody">
+        <div>Bookmarks</div>
 
-<div class="added" th:if="${added != null && added == true}" th:text="Bookmark hinzugefügt"></div>
+        <div class="added" th:if="${added != null && added == true}" th:text="Bookmark hinzugefügt"></div>
 
-<div th:each="bookmark : ${bookmarks}">
-    <div class="bookmark">
-        <a th:href="${bookmark.url}" th:title="${bookmark.title}" target="_blank" class="bookmark-link">
-                <span th:text="${bookmark.title}" class="bookmark-title">
+        <div th:each="bookmark : ${bookmarks}">
+            <div class="bookmark">
+                <a class="bookmark-link" target="_blank" th:href="${bookmark.url}" th:title="${bookmark.title}">
+                <span class="bookmark-title" th:text="${bookmark.title}">
                     title
                 </span>
-        </a>
+                </a>
+            </div>
+        </div>
+        <div th:replace="bookmark/fragments/addForm :: bookmarkAddForm"></div>
+
     </div>
 </div>
-
-<div th:replace="bookmark/fragments/addForm :: bookmarkAddForm"></div>
-
 </body>
 </html>
