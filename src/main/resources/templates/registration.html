@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style th:replace="fragments/style :: style"></style>
+</head>
+<body>
+<div class="page">
+    <div class="pageHead">
+        <div th:replace="fragments/header :: header"></div>
+    </div>
+    <div class="pageBody">
+        <form action="/registration" meethod="post">
+
+            <label for="username">Email</label><input id="username" type="text" name="username" />
+            <label for="username">Password</label><input id="password" type="text" name="password" />
+            <label for="username">Name</label><input id="name" type="text" name="name" />
+            <input type="submit">
+        </form>
+    </div>
+</div>
+</body>
+</html>

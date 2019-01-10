@@ -1,6 +1,8 @@
 package eu.domroese.toolbox.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import eu.domroese.toolbox.Model.Role;
 
@@ -17,7 +19,7 @@ public class User {
 
     private String name;
 
-    public Set<Role> roles;
+    private ArrayList<Role> roles;
 
     public User() {
     }
@@ -62,11 +64,11 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    public Set<Role> getRoles() {
+    public ArrayList<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(ArrayList<Role> roles) {
         this.roles = roles;
     }
 }
