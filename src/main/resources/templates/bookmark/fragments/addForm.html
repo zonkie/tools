@@ -1,6 +1,6 @@
 <div xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="bookmarkAddForm">
     <h1>Add a Bookmark</h1>
-    <form action="/bookmark/add" method="post" th:object="${newBookmark}">
+    <form th:action="@{/bookmark/add}" method="post" th:object="${newBookmark}">
         <div class="form-field">
             <label for="url"></label>Url: <input type="text" id="url" name="url" th:field="*{url}" />
         </div>
